@@ -15,7 +15,7 @@ todo:
 	grep  -r "TODO:" * --exclude-dir ENV --exclude Makefile
 
 release:
-	bash release.sh
+	bash release.sh; echo "done"
 
 bump:
 	python -c 'fh=open("version.md");c=fh.readline();n=map(lambda x: int(x),c.split("."));print ".".join(map(str, [n[0],n[1],n[2]+1]))' > new_version.md; mv new_version.md version.md

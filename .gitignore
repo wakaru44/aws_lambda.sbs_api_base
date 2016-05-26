@@ -6,7 +6,7 @@ ENV
 #Generic stuff
 tmp
 packages
-release
+releases
 archive
 *log
 
