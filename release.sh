@@ -4,8 +4,19 @@
 #
 # Script to create a release package with the code
 #
+# 
+# Just include your code, and the site-packages folder in your ENV dir.
+# 
+# - clone the repo
+# - copy everything downloaded to the `release` location
+# - in whatever folder, create a virtualenv, and activate it.
+# - run the `pip install -r requirements.txt` 
+# - copy the contents of `ENV/lib/python2.7/site-packages` to the `release` location
+# - zip the `release` location, and ship it to amazon.
+# 
+# the problem here is activating the environment from the bash file. seems easy.
 ################################################################################
-REPO="https://github.com/wakaru44/aws_lambda.python_boilerplate.git"
+REPO="https://github.com/wakaru44/aws_lambda.personal_api_base.git"
 
 # TODO: improve logging. or at least add it
 
