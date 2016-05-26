@@ -5,7 +5,7 @@
 # Script to create a release package with the code
 #
 ################################################################################
-REPO="https://github.com/wakaru44/aws_lambda.python_boilerplate"
+REPO="https://github.com/wakaru44/aws_lambda.python_boilerplate.git"
 
 # TODO: improve logging. or at least add it
 
@@ -13,6 +13,7 @@ REPO="https://github.com/wakaru44/aws_lambda.python_boilerplate"
 # Finish changes in the current repo and prepare
 
 git push
+# BASEDIR should be the path of the app. It will be used for naming and all.
 BASEDIR=$(pwd)
 echo "Working on the path $BASEDIR. Please check"
 mkdir -p $BASEDIR/release
@@ -37,14 +38,15 @@ cp -rv ENV/lib/python2.7/site-packages/* $BASEDIR/release
 ################################################################################
 # Now, create the package
 cd $BASEDIR/release
-PKG="$(basename $(pwd)_v$(cat version.md ).zip)"
+PKG="$(basename ${BASEDIR}_v$(cat version.md ).zip)"
 zip $PKG *
 mv $PKG $BASEDIR/packages
 
 
 ################################################################################
 # And finally, cleanup after yourself
-rm -r $BASEDIR/tmp
-rm -r $BASEDIR/release
+# commented out to leave it for debugging. can be achieve with make clean
+#rm -fr $BASEDIR/tmp
+#rm -fr $BASEDIR/release
 cd $BASEDIR
 
