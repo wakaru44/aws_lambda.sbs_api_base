@@ -7,6 +7,7 @@
 ################################################################################
 REPO="https://github.com/wakaru44/aws_lambda.python_boilerplate"
 
+# TODO: improve logging. or at least add it
 
 ################################################################################
 # Finish changes in the current repo and prepare
@@ -16,6 +17,7 @@ BASEDIR=$(pwd)
 echo "Working on the path $BASEDIR. Please check"
 mkdir -p $BASEDIR/release
 mkdir -p $BASEDIR/tmp
+mkdir -p $BASEDIR/packages
 
 
 ################################################################################
@@ -33,9 +35,16 @@ deactivate
 cp -rv ENV/lib/python2.7/site-packages/* $BASEDIR/release
 
 ################################################################################
-# And finally, create the package
+# Now, create the package
 cd $BASEDIR/release
-zip boilerplate_release.zip
+PKG="$(basename $(pwd)_v$(cat version.md ).zip)"
+zip $PKG *
+mv $PKG $BASEDIR/packages
 
 
+################################################################################
+# And finally, cleanup after yourself
+rm -r $BASEDIR/tmp
+rm -r $BASEDIR/release
+cd $BASEDIR
 

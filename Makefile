@@ -1,7 +1,7 @@
 # A simple makefile to make things simpler
 
 help:
-	@echo "AWS Lambda. Python Boilerplate
+	@echo "AWS Lambda. Python Boilerplate";
 	@echo "";
 	@echo "help           - This text.";
 	@echo "todo           - Will print all the TODO's in the code.";
