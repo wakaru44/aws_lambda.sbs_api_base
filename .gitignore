@@ -1,0 +1,9 @@
+# Python stuff
+*pyc
+ENV
+
+
+#Generic stuff
+tmp
+archive
+*log
