@@ -18,6 +18,7 @@ release:
 	bash release.sh; echo "done"
 
 bump:
+	#TODO: after bumping the version number, it should git commit and git tag
 	python -c 'fh=open("version.md");c=fh.readline();n=map(lambda x: int(x),c.split("."));print ".".join(map(str, [n[0],n[1],n[2]+1]))' > new_version.md; mv new_version.md version.md
 
 clean:
